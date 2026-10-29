@@ -26,11 +26,11 @@ def main():
     if not isinstance(items, list) or len(items) > 1000:
         raise ValueError("Invalid catalog")
     for item in items:
-        key, extension = item["id"], item["format"]
-        if not re.fullmatch(r"[a-f0-9]{64}", key) or extension not in ("json", "txt", "csv"):
+        key, filename = item["id"], item["filename"]
+        if not re.fullmatch(r"[a-f0-9]{64}", key) or not filename or re.search(r'[\\/:*?"<>|\x00-\x1f]', filename) or filename.startswith('.') or filename.endswith('.'):
             raise ValueError("Invalid model identifier")
         folder = Path("modelos") / key
-        target = folder / ("modelo." + extension)
+        target = folder / filename
         if not target.exists() or hashlib.sha256(target.read_bytes()).hexdigest() != item["sha256"]:
             data = fetch("/api/files/" + key, LIMIT)
             if hashlib.sha256(data).hexdigest() != item["sha256"] or len(data) != item["size"]:
