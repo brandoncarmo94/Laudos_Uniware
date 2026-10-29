@@ -37,7 +37,7 @@ def main():
                 raise ValueError("Model integrity mismatch")
             folder.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
-        (folder / "metadata.json").write_text(json.dumps(item, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        # Metadata lives in catalog.json; never overwrite an uploaded metadata.json.
     Path("catalog.json").write_text(json.dumps({"schemaVersion": 1, "items": items}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Catalog mirrored: {len(items)} model(s).")
 
