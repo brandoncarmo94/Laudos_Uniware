@@ -2,7 +2,7 @@
 
 Modelos de laudos com cálculo enviados pela equipe, sem login, identificados pelo nome declarado no envio.
 
-Catálogo e envio: https://uniware-laudos.luckybeech43.chatgpt.site
+Catálogo e envio: https://uniware-laudos.brandonuniware.chatgpt.site
 
 O modelo aparece imediatamente no catálogo online. Este repositório mantém uma cópia automática por GitHub Actions, com execução agendada a cada 15 minutos (o GitHub pode atrasar o início).
 

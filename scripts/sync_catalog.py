@@ -7,7 +7,7 @@ import urllib.request
 import shutil
 import time
 
-ORIGIN = "https://uniware-laudos.luckybeech43.chatgpt.site"
+ORIGIN = "https://uniware-laudos.brandonuniware.chatgpt.site"
 LIMIT = 512 * 1024
 
 
